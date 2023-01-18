@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+  <head>
+    <title>RogDhwani</title>
+    <link rel="icon" type="image/x-icon" href="static/images/RogDhwani-logos/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>    
+    <script src="js/script.js"></script>
+  </head>
+ <body onload="plot();">
+  <!-- <body> -->
+    <div class="topnav">
+      <div class="forcenter row" >
+      <table class="tnav" style="margin-left:auto;margin-right:auto">
+        <tr>
+          <td><h1 id="mainHeading" class="border col col-md-6 text-right"><b>RogDhwani</b></h1>  </td>
+          <td> <img src="static/images/RogDhwani-logos/human_upper_body.png" class="pull-center"></td>
+        </tr>
+      </table>
+    </div>
+    </div>
+  <div class="container" >
+  
+    <!-- <div> -->
+
+      
+     
+    <!-- </div> -->
+  
+  <div class="row" style="float:left">
+    <h2 id="mainHeading2" class="col-lg-12 col-md-6 ">Welcome Dr. Sumit Sharma!</h2>
+   
+  </div>
+
+  <div class="row" >
+    <div class="forclock" style="float:right">
+    <div id="clock" class="time">
+      <table>
+        <tr>
+          <td><span class="hms"></span></td>
+          <td><span class="ampm"></span></td>
+        </tr>
+      </table>  
+      <span class="date"></span>
+    </div>
+  </div>
+  </div>
+
+ </div>
+   <br>
+<div class="container">
+  <div id="alignmemtset">      
+    <div class="row"> 
+        <p class="col-lg-3 col-md-3" >
+          <label for="Name">Patient Name:</label>
+          <input type="text" id="Name" name="Name" placeholder="Mr. Anand Pandey" size="15" disabled>
+        </p>
+        <p class="col-lg-2 col-md-3">
+          <label for="Name">Age:</label>
+          <input type="text" id="Name" name="Name" placeholder="56" size="2" disabled>
+        </p>
+        <p class="col-lg-3 col-md-3">
+          <label for="Name">Last Visit:</label>
+          <input type="text" id="Name" name="Name" placeholder="30 days ago" size="10" disabled></h5>
+        </p>
+        <p class="col-lg-4 col-md-3">
+          <label for="Name">Last Diagnosis:</label>
+          <input type="text" id="Name" name="Name" placeholder="Healthy Lung Sounds" size="20" disabled></p>
+        
+    </div>      
+</div>
+  <div id='myDiv' ><!-- Plotly chart will be drawn inside this DIV --></div>
+  <form action="/sendData" method="POST">
+    <div class="form-row">
+      <div class="form-group col-md-6 col-sm-2">
+        <label for="inputState">Signal Quality</label>
+        <select name="signalQuality" id="signalQuality" class="form-control">
+          <option selected>Low</option>
+          <option>Low</option>
+          <option>Medium</option>
+          <option>High</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6 col-sm-2" >
+        <label for="inputState">Signal Duration</label>
+        <select name="signalDuration" id="signalDuration" class="form-control">
+          <option selected>Long : 5 sec</option>
+          <option>Short : 0.1 sec</option>
+          <option>Medium : 1 sec</option>
+          <option>Long : 5 sec</option>
+        </select>
+      </div>
+    </div>
+    <button id="btnStart" class="btn btn-primary btn-lg btn-block">Start</button>
+  </form>
+  </div>
+</div>
+
+</body>
+  <script type='text/javascript'>
+    // window.onload = function plot() {
+    var interval;
+    var plotDiv = 'myDiv';
+    function plot() {
+
+      Plotly.newPlot(plotDiv, [{
+        y: [],
+        mode: 'lines',
+        line: {color: '#80CAF6'}
+      }]);
+
+      var cnt = 0;
+
+      interval = setInterval(function updatePlot() 
+      {                    
+        let external = fetch("/getData");
+
+        external.then(res =>
+          res.json()).then(d => {
+            var datas = d.data;             
+            // console.log(datas)
+            for(var i = 0; i < datas.length; i++)
+            // Plotly.extendTraces('myDiv', { y: [[datas]] }, [0])
+            {
+              value = datas[i]              
+              var config = {responsive: true}
+              Plotly.extendTraces(plotDiv, { y: [[value]] }, [0])
+            }
+          }
+        )
+
+        if(++cnt === 100) clearInterval(interval);
+      }, 1000);
+    }
+    // $(function() {
+    //       $('#btnStart').on('click', function(e) {
+    //         let external = fetch("/sendData");
+    //         Session["controlMsg"] ="This is my session";
+    //         external.then(res =>
+    //           res.json()).then(d => {
+    //             //do nothing
+    //             // var quality = document.getElementById("signalQuality").value;
+    //             // var duration = document.getElementById("signalDuration").value;                                
+
+    //             document.getElementById("mainHeading").innerHTML += " Updating!"; 
+    //             clearInterval(interval);
+    //             // Plotly.deleteTraces(plotDiv, 0);
+   
+    //             plot();
+    //             // updatePlot();
+    //             // console.log(document.getElementById(plotDiv).y);
+    //           }
+    //         )
+    //       });
+    //     });
+    function updateTime() {
+      var dateInfo = new Date();
+    
+      /* time */
+      var hr,
+        _min = (dateInfo.getMinutes() < 10) ? "0" + dateInfo.getMinutes() : dateInfo.getMinutes(),
+        sec = (dateInfo.getSeconds() < 10) ? "0" + dateInfo.getSeconds() : dateInfo.getSeconds(),
+        ampm = (dateInfo.getHours() >= 12) ? "PM" : "AM";
+    
+      // replace 0 with 12 at midnight, subtract 12 from hour if 13–23
+      if (dateInfo.getHours() == 0) {
+        hr = 12;
+      } else if (dateInfo.getHours() > 12) {
+        hr = dateInfo.getHours() - 12;
+      } else {
+        hr = dateInfo.getHours();
+      }
+    
+      var currentTime = hr + ":" + _min + ":" + sec;
+    
+      // print time
+      document.getElementsByClassName("hms")[0].innerHTML = currentTime;
+      document.getElementsByClassName("ampm")[0].innerHTML = ampm;
+    
+      /* date */
+      var dow = [
+          "Sunday",
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        month = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
+        ],
+        day = dateInfo.getDate();
+    
+      // store date
+      var currentDate = dow[dateInfo.getDay()] + ", " + month[dateInfo.getMonth()] + " " + day;
+    
+      document.getElementsByClassName("date")[0].innerHTML = currentDate;
+    };
+    
+    // print time and date once, then update them every second
+    updateTime();
+    setInterval(function() {
+      updateTime()
+    }, 1000);
+  </script>
+</html>
