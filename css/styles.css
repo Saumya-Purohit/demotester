@@ -89,6 +89,7 @@ body{
       text-align: center;
       width: auto;
       margin:auto 2%;
+      text-align: center;
   }
   .hms {
       font-size: 3vw;
@@ -128,6 +129,7 @@ body{
       text-align: center;
       width: 150px;
       margin:auto 2%;
+      text-align: center;
   }
   .hms {
       font-size: 3vw;
