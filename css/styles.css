@@ -371,8 +371,9 @@ nav ul li div { position: relative; }
 @-webkit-keyframes blink-caret { 50% { border-color: transparent; } }
 /* image css*/
 .pull-center{
-    width: 60%;
+    width: 60px;
   height: auto;
+  position: relative;
     /* margin:auto; */
     /* display: flex; */
 
@@ -456,7 +457,7 @@ nav ul li div { position: relative; }
       font-size: 1vw;
   }
 
-/* .tnav{
-    width: 35%;
-} */
+.tnav{
+    width: 30%;
+}
   }
