@@ -2,6 +2,11 @@ body{
     background-color: #F4F4F2;
     font-smoothing: anti-aliased;
 }
+html, body {
+	height:100%;
+	padding:0;
+	margin:0;
+   }
 
 *,*:before,*:after {
 	box-sizing: border-box;
@@ -370,6 +375,7 @@ nav ul li div { position: relative; }
     font: bold 300% Consolas, Monaco, monospace;
     margin: 2% 5%;
 	margin-left: 1%;
+	
 }
 #mainHeading2{
     font: bold 200% Consolas, Monaco, monospace;
@@ -381,6 +387,7 @@ nav ul li div { position: relative; }
 	white-space: nowrap;
 	overflow: hidden;
 	-webkit-animation: typing 2s steps(21, end), blink-caret .5s step-end infinite alternate;
+	margin-right: 0%;
 }
 
 @-webkit-keyframes typing { from { width: 0; } }
