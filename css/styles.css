@@ -425,6 +425,7 @@ nav ul li div { position: relative; }
   .hms {
       font-size: 1vw;
       /* font-weight: 200; */
+	  /*  */
   }
   .ampm {
       font-size: 0.45vw;
