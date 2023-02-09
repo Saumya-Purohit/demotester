@@ -13,7 +13,7 @@ body{
 
 section {
   position: relative;
-  left: 100px;
+  left: 4%;
 }
 
 
@@ -387,9 +387,10 @@ nav ul li div { position: relative; }
 @-webkit-keyframes blink-caret { 50% { border-color: transparent; } }
 /* image css*/
 .pull-center{
-    width: 60px;
-  height: auto;
+    width: 40px;
+  height: 60%;
   position: relative;
+  margin-left: 0%;
     /* margin:auto; */
     /* display: flex; */
 
@@ -482,3 +483,19 @@ nav ul li div { position: relative; }
     width: 30%;
 }
   }
+
+#myDiv{
+	margin-left: 0%;
+	height:40%;
+}
+.tosetp{
+	margin-left: 0%;
+}
+#towidthcheck{
+	margin: 0;
+	padding: 0;
+	width: 90%;
+}
+#alignmemtset{
+	width:92%;
+}
