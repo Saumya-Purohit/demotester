@@ -47,7 +47,7 @@ nav ul li {
 	background: #495464;
 	text-transform: uppercase;
 	transition:all .4s ease-out;
-	padding: 2%;
+	/* padding: 2%; */
 }
 
 nav ul li:after {
