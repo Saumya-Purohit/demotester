@@ -185,6 +185,8 @@
         line: {color: '#80CAF6'}
       }]);
 
+      
+
       var cnt = 0;
 
       interval = setInterval(function updatePlot() 
@@ -284,7 +286,10 @@
     
       document.getElementsByClassName("date")[0].innerHTML = currentDate;
     };
-    
+    var layout = {
+      autosize: false,
+      width: 5,
+      height: 5};
     // print time and date once, then update them every second
     updateTime();
     setInterval(function() {
