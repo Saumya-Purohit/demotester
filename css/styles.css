@@ -42,7 +42,7 @@ nav ul {
 
 nav ul li {
 	position: relative;
-  width: 70px;
+  width: 60%;
   cursor: pointer;
 	background: #495464;
 	text-transform: uppercase;
