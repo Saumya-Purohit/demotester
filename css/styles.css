@@ -449,9 +449,8 @@ nav ul li div { position: relative; }
 @media only screen and (max-device-width: 600px){
     /*clock*/
 #clock{
-    font-family: "Work Sans", sans-serif;
+	font-family: "Work Sans", sans-serif;
     display: block;
-    margin: 1%;
     margin-top: 0;
 
  
@@ -460,31 +459,32 @@ nav ul li div { position: relative; }
     float:left;
 }
 .time { 
-    /* margin:100px auto; */
-      background: #BBBFCA;
+   /* margin:100px auto; */
+      /* background: #BBBFCA; */
       color: #fff;
-      border: 5px solid rgb(255, 252, 252);
+      border: 1.5px solid #9BA4B4; 
       box-shadow: 0 2px 10px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-      padding: 8px;
+      padding: 6px;
       text-align: center;
-      width: 160px;
-      margin:auto 2%;
+      width: auto;
+      margin:auto;
       text-align: center;
   }
   .hms {
-      font-size: 3vw;
-      font-weight: 200;
-  }
-  .ampm {
-      font-size: 1.7vw;
-      display: inline;
-      margin: 1%;
-      margin-bottom:0;
-      margin-left: 2%;
-  }
-  .date {
-      font-size: 1vw;
-  }
+	font-size: 1vw;
+	/* font-weight: 200; */
+	/*  */
+}
+.ampm {
+	font-size: 0.45vw;
+	display: inline;
+	margin: 1%;
+	margin-bottom:0;
+	margin-left: 2%;
+}
+.date {
+	font-size: 0.7vw;
+}
 
 .tnav{
     width: 30%;
