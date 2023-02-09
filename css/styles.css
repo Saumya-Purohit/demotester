@@ -47,6 +47,7 @@ nav ul li {
 	background: #495464;
 	text-transform: uppercase;
 	transition:all .4s ease-out;
+	padding: 2%;
 }
 
 nav ul li:after {
@@ -75,15 +76,24 @@ nav ul li:nth-child(3):after {
 	content: "Contact";
 	line-height: 85px;
 }
-nav ul li:nth-child(4):after { 
-	/* content: "Say hi";
-	line-height: 70px; */
-}
+
 
 nav ul li:hover {
 	transform: translateX(-70px);
 }
-
+#noanimate:hover{
+		transform: none;
+		transform: none;
+}
+#noanimate:hover:after{
+	transform: none;
+	transform: none;
+}
+#noanimate:after{
+	transform: none;
+	transform: none;
+	display: none;
+}
 nav ul li:hover:after {
   opacity: 1;
 	transform: perspective(400px) rotateY(0deg) scale(1) ;
@@ -404,12 +414,12 @@ nav ul li div { position: relative; }
     /* margin:100px auto; */
       /* background: #BBBFCA; */
       color: #fff;
-      /* border: 1.5px solid rgb(255, 252, 252); */
+      border: 1.5px solid #9BA4B4; 
       box-shadow: 0 2px 10px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-      padding: 2px;
+      padding: 6px;
       text-align: center;
       width: auto;
-      margin:auto 2%;
+      margin:auto;
       text-align: center;
   }
   .hms {
